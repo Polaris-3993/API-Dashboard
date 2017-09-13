@@ -1,0 +1,101 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+</div>
+<div class="trigger-setup-modal modal-body" style="height: 250px">
+  <form id="ngForm" class="ng-pristine ng-valid" #triggerSetupForm="ngForm" novalidate (ngSubmit)="!triggerSetupForm.form.valid || !this.currentTriggerSetup.App || !this.currentTriggerSetup.Trigger || saveTrigger()">
+    <div class="form-group">
+      <label>App</label>
+      <input autocomplete="off" type="text" ng-model="appName" required class="form-control ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" name="appName" #appName="ngModel" [(ngModel)]="selectedAppName" [typeaheadMinLength]="0" placeholder="start typing.."
+             [typeahead]="apps" required typeaheadOptionField="Name" (typeaheadOnSelect)="onAppSelect($event)">
+      <span ng-show="form.validateInput('appName', 'required')" class="text-danger" [hidden]="(appName.valid && currentTriggerSetup.App != null) || !triggerSetupForm.submitted">
+        App Name is required.
+      </span>
+    </div>
+    <div *ngIf="currentTriggerSetup.App && currentTriggerSetup.App.Name" class="form-group">
+      <label>Trigger</label>
+      <input [ngBusy]="{busy: showBusy, message: 'Loading triggers...', backdrop: true}" autocomplete="off" name="selectedTriggerName" #triggerName="ngModel" required [(ngModel)]="selectedTriggerName" [typeaheadMinLength]="0"
+             placeholder="start typing.." [typeahead]="triggers" typeaheadOptionField="Title" class="form-control" (typeaheadOnSelect)="onTriggerSelect($event)">
+      <span class="text-danger" [hidden]="(triggerName.valid && currentTriggerSetup.Trigger != null) || !triggerSetupForm.submitted">
+        Trigger Name is required.
+      </span>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption.KeyCaption1" class="form-group">
+      <div>
+        {{appKeyCaption.KeyCaption1}}
+      </div>
+      <div>
+        <input type="text" name="KeyCaption1Value" [(ngModel)]="appKeyCaption.KeyCaption1Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="appKeyCaption.KeyCaption1Value || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption.KeyCaption2" class="form-group">
+      <div>
+        {{appKeyCaption.KeyCaption2}}
+      </div>
+      <div>
+        <input type="text" name="KeyCaption2Value" [(ngModel)]="appKeyCaption.KeyCaption2Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="appKeyCaption.KeyCaption2Value || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption.KeyCaption3" class="form-group">
+      <div>
+        {{appKeyCaption.KeyCaption3}}
+      </div>
+      <div>
+        <input type="text" name="KeyCaption3Value" [(ngModel)]="appKeyCaption.KeyCaption3Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="appKeyCaption.KeyCaption3Value || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption.KeyCaption4" class="form-group">
+      <div>
+        {{appKeyCaption.KeyCaption4}}
+      </div>
+      <div>
+        <input type="text" name="KeyCaption4Value" [(ngModel)]="appKeyCaption.KeyCaption4Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="appKeyCaption.KeyCaption4Value || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption.KeyCaption5" class="form-group">
+      <div>
+        {{appKeyCaption.KeyCaption5}}
+      </div>
+      <div>
+        <input type="text" name="KeyCaption5Value" [(ngModel)]="appKeyCaption.KeyCaption5Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="appKeyCaption.KeyCaption5Value || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="appKeyCaption && appKeyCaption['AppKeys'].length > 0" class="form-group">
+      <div *ngFor="let appKeysName of appKeyCaption['AppKeys']">
+        <label>{{appKeysName.Name}}</label>
+        <input type="text" [name]="'name'+appKeyCaption['AppKeys'].indexOf(appKeysName)" [(ngModel)]="appKeysName.Value" required class="form-control" size="20">
+        <span class="text-danger" [hidden]="(appKeysName.Value != null) || !triggerSetupForm.submitted">
+          Field is required.
+        </span>
+      </div>
+    </div>
+    <div *ngIf="credentialsKeys && credentialsKeys.length > 0" class="form-group">
+      <div>
+        App Keys
+      </div>
+      <div>
+        <select class="form-control" name="selectedCredentialKey" [(ngModel)]="selectedCredentialKey">
+          <option *ngFor="let credentialsKey of credentialsKeys" [ngValue]="credentialsKey">{{credentialsKey.DisplayValue}}</option>
+        </select>
+        <a class="manage-btn" href="../../AppKeys.htm">manage</a>
+      </div>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-primary" form="ngForm" type="submit">Save</button>
+</div>

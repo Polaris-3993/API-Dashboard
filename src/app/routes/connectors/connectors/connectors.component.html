@@ -1,0 +1,66 @@
+<div class="wrapper">
+    <div _ngcontent-c1 class="content-wrapper ng-scope ng-fadeInUp">
+        <div _ngcontent-c9 class="content-heading">
+            Dashboard
+            <div class="integration-btn-wrapper">
+                <button id="new-integration" [routerLink]="['/integration-details']" class="btn btn-primary" name="B2" style="float: right">
+                    <em class="fa fa-plus-circle fa-fw mr-sm"></em>
+                    New Integration
+                </button>
+            </div>
+        </div>
+        <div class="panel panel-default connectors">
+            <div class="panel-body">
+                <h3>
+                    Integrations
+                </h3>
+                <div class="table-responsive">
+                    <table class="table table-striped table-bordered table-hover" role="grid">
+                        <thead>
+                            <tr>
+                                <th style="width: 250px">Trigger</th>
+                                <th>Actions</th>
+                                <th style="width: 140px; text-align: center">Last Run</th>
+                                <th style="width: 80px"></th>
+                                <th style="width: 40px"></th>
+                                <th style="width: 40px"></th>
+                                <th style="width: 40px"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let connector of connectorItems; let i = index">
+                                <td>
+                                    {{connector.Trigger.Name}}
+                                </td>
+                                <td [innerHtml]="connector.Trigger | formatTriggerName"></td>
+                                <td style="text-align: center">{{connector.LastSync}}</td>
+                                <td align="center">
+                                    <a *ngIf="!connector.IsRemoving" _ngcontent-c8="" class="btn btn-sm btn-warning" href="#" (click)="deleteConnector(connector)">Clear Cache</a>
+                                    <div class="panel-body loader-demo" *ngIf="connector.IsRemoving">
+                                        <div class="line-scale">
+                                            <div></div><div></div><div></div><div></div><div></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td align="center">
+                                    <a *ngIf="!connector.IsRunning" _ngcontent-c8="" class="btn btn-sm btn-success" title="Run Integration" href="#" (click)="runIntegration(connector)"><em class="icon-control-play"> Run</em></a>
+                                    <div class="panel-body loader-demo" *ngIf="connector.IsRunning">
+                                        <div class="line-scale">
+                                            <div></div><div></div><div></div><div></div><div></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td style="text-align: center">
+                                    <a title="Delete Integration" class="btn btn-sm btn-danger" (click)="deleteIntegration(connector, i)"><em class="fa fa-trash"></em></a>
+                                </td>
+                                <td style="text-align: center">
+                                    <a title="Edit Integration" class="btn btn-sm btn-info" [routerLink]="['/integration-details', connector.Id]"><em class="fa fa-pencil"></em></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

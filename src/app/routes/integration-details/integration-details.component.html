@@ -1,0 +1,84 @@
+<section>
+  <div class="wrapper">
+    <div class="content-wrapper integration-content ng-scope ng-fadeInUp">
+      <div class="content-heading">
+        <font size="5"><b>{{title}} <em _ngcontent-c21="" class="fa fa-angle-double-right"></em> {{ (integrationRequest.TriggerSetup.Trigger && integrationRequest.TriggerSetup.Trigger.Title) || "Trigger"}} </b></font>
+
+        <div style="float:right">
+          <div class="action-btn-wrapper" (click)="$event.preventDefault()">
+            <button type="button" class="add-action-btn btn btn-primary btn-md" (click)="addIntegrationTab()">
+                New Action
+              <em class="fa fa-plus-circle fa-fw mr-sm"></em>
+            </button>
+            <button class="btn btn-primary edit-trigger-btn" name="B2" (click)="editTriggerSetup(integrationRequest.TriggerSetup)">
+              <em class="fa fa-edit fa-fw mr-sm"></em>
+                Edit Trigger
+            </button>
+          </div>
+        </div>
+
+      </div>
+      <div>
+        <div class="panel-body">
+          <div *ngIf="this.apps?.length > 0 && integrationRequest.ActionsSetup?.length > 0">
+
+            <div class="panel-body action-tabs">
+              <tabset>
+                <tab [customClass]="actionSetup.CustomClass" *ngFor="let actionSetup of integrationRequest.ActionsSetup; let i = index;"
+                  [active]="actionSetup.Active" (select)="doOnTabSelect(actionSetup, i)">
+                  <template tabHeading>
+                    <font size="4">
+                      <b>
+                        <a href="#">
+                           {{actionSetup.Action.Title || "Action"}}
+
+                          &nbsp;&nbsp;
+                          <span>
+                            <span (click)="$event.preventDefault(); editActionSetup(actionSetup);" class="btn btn-oval btn-default icon-settings"></span>
+                          </span>
+                          <span>
+                            <span (click)="$event.preventDefault(); removeActionSetup(actionSetup);" class="btn btn-oval btn-default fa fa-remove"></span>
+                          </span>
+                        </a>
+                      </b>
+                    </font>
+                  </template>
+                  <div class="col-md-12 tabs-wrapper">
+                    <div class="col-md-9">
+
+                      <div style="margin-left: -30px;">
+                        <codemirror [(ngModel)]="actionSetup.CodeBlock" [config]="config" style="width:100%; height:100%;" rows="40" name="S1" cols="74"></codemirror>
+                      </div>
+
+                    </div>
+                    <div class="col-md-3 right-column-wrapper" style="margin-top: 0">
+                      <h4>Event Tokens:</h4>
+                      <div class="tokens-wrapper">
+                        <div class="tokens-list" *ngFor="let token of tokens">
+                          <li (click)="replaceText(token)" class="mb-sm btn btn-primary btn-outline fa fa-plus">
+                            {{token}}
+                          </li>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </tab>
+              </tabset>
+            </div>
+            <input style="margin-left:15px" *ngIf="!isSaving" class="btn btn-primary btn-lg" type="button" value="Save" name="B1" (click)="saveIntegration()">
+            <div *ngIf="isSaving" style="margin-left: 15px;">
+              <div class="line-scale">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

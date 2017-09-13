@@ -1,0 +1,17 @@
+.topnavbar .navbar-header .brand-logo {
+    // display: block;
+    // padding: 3px 24px;
+    // width: 90px;
+    margin-top: -8px;
+}
+.signout-btn{
+    display: block;
+    padding-top: 16px;
+    padding-right: 10px;
+}
+.fa-sign-out{
+    color:white;
+    &:hover{
+        color: #117391;
+    }
+}

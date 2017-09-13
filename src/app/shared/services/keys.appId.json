@@ -1,0 +1,18 @@
+[
+    {
+        "Id": "a3e4840f-ea0f-4739-b316-e6f4d0eea4bf",
+        "KeyValue1": "Test1",
+        "KeyValue2": "Test7",
+        "KeyValue3": "Test8",
+        "KeyValue4": "Test9",
+        "KeyValue5": "Test10"
+    },
+    {
+        "Id": "a3e4840f-ea0f-4739-b316-e6f4d0eea4bf",
+        "KeyValue1": "value1",
+        "KeyValue2": "value2",
+        "KeyValue3": null,
+        "KeyValue4": null,
+        "KeyValue5": null
+    }
+]

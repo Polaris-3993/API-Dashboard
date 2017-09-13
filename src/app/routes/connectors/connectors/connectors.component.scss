@@ -1,0 +1,80 @@
+.table-responsive {
+    overflow-x: hidden;
+}
+.table1 > caption + thead > tr:first-child > th, .table1 > caption + thead > tr:first-child > td, .table1 > colgroup + thead > tr:first-child > th, .table1 > colgroup + thead > tr:first-child > td, .table1 > thead:first-child > tr:first-child > th, .table1 > thead:first-child > tr:first-child > td {
+  line-height: 1.5;
+  border-top: 2px solid #eee;
+  vertical-align: center;
+  text-align: center;
+}
+.table1 td {
+  text-align: center;
+}
+
+.table1 td:first-child {
+  text-align: left;
+  padding-left: 8px;
+}​
+
+.table1>tbody>tr>td, .table1>tbody>tr>th, .table1>tfoot>tr>td, .table1>tfoot>tr>th, .table1>thead>tr>td, .table1>thead>tr>th {
+  padding: 0px 8px;
+  line-height: 1.52857;
+  border-top: 2px solid #eee;
+  vertical-align: center;
+  text-align: center;
+}
+.table1>thead>tr>th {
+  padding: 14px 8px;
+  color: #888;
+}
+.panel.panel-default {
+  border-top-width: 1px;
+}
+#new-integration{
+  padding: 6px 16px 6px 33px;
+}
+.connectors{
+  border:none;
+  h3{
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  .dataTable{
+    overflow: hidden;
+  }
+}
+.integration-btn-wrapper{
+  position: relative;
+  float: right;
+  margin-top: -4px;
+  em{
+    position: absolute;
+    color: white;
+    top: 10px;
+    left: 13px;
+    font: normal normal normal 14px/1 FontAwesome;
+  }
+}
+
+.table2 > caption + thead > tr:first-child > th>td:first-child, .table2 > caption + thead > tr:first-child > td, .table2 > colgroup + thead > tr:first-child > th, .table2 > colgroup + thead > tr:first-child > td, .table2 > thead:first-child > tr:first-child > th, .table2 > thead:first-child > tr:first-child > td {
+  border-top: 0;
+  line-height: 1.5;
+  border-top: 2px solid #eee;
+  vertical-align: center;
+  text-align: center;
+}
+.table2 td {
+  text-align: center;
+}
+
+.table2 td:first-child {
+  text-align: left;
+  padding-left: 4px;
+}​
+.table2>tbody>tr>td, .table2>tbody>tr>th, .table2>tfoot>tr>td, .table2>tfoot>tr>th, .table2>thead>tr>td, .table2>thead>tr>th {
+  padding: 24px 3px;
+  line-height: 0.52857;
+  border-top: 2px solid #eee;
+  vertical-align: center;
+  text-align: center;
+}

@@ -1,0 +1,67 @@
+.add-action-btn{
+  margin-left: 15px;
+  position: relative;
+  padding-left: 32px;
+  margin-bottom: 10px;
+  .fa-plus-circle{
+    position: absolute;
+    left:11px;
+    top: 9px;
+  }
+}
+.tokens-list{
+  width: 100%;
+  float: right;
+  padding-left: 0;
+  li{
+    word-wrap: break-word;
+    height:auto;
+  }
+}
+.action-tabs{
+  a{
+    text-decoration: none;
+    color: #656565;
+    font-size: 14px;
+  }
+  .form-control{
+    height:38px;
+  }
+  .right-column-wrapper{
+    margin-top:69px;
+  }
+}
+.tabs-wrapper{
+  background: #F5F7FA;
+}
+.code-editor-list{
+  width:100%;
+  margin-bottom:20px;
+  .form-control{
+    font-size: 16px!important;
+    height:35px;
+  }
+}
+.edit-trigger-btn{
+  float: right;
+  position: relative;
+}
+.fa-edit{
+  &:before{
+    position: absolute;
+    top:10px;
+    left: auto;
+  }
+}
+.integration-content{
+  .panel-default{
+    border: none;
+  }
+}
+.action-btn-wrapper{
+  width:255px;
+  float: right;
+}
+.CodeMirror {
+  height: 500px;
+}

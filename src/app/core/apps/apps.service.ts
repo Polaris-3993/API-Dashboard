@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { Observable } from "rxjs/Observable";
 import { App } from "app/core/apps/app";
-import { AppKeyCaption } from "app/core/apps/AppKeyCaption";
+import { AppKeyCaption } from "app/core/apps/appKeyCaption";
 import { CredentialKey } from "app/core/apps/credential.key";
 
 @Injectable()

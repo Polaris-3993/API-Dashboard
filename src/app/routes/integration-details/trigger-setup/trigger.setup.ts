@@ -1,5 +1,5 @@
 import { App } from "app/core/apps/app";
-import { AppKeyCaption } from "app/core/apps/AppKeyCaption";
+import { AppKeyCaption } from "app/core/apps/appKeyCaption";
 import { CredentialKey } from "app/core/apps/credential.key";
 import { Trigger } from "app/core/triggers/trigger";
 import * as _ from "lodash"
